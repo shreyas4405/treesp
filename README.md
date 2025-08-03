@@ -95,11 +95,8 @@ This AI-powered app helps students and nature enthusiasts identify and explore t
 
 ## ✅ How to Run
 
-1. Run `5M_trees.ipynb` to train the recommender and save:
-
-2. Run `tree_CNN.ipynb` to train the image classifier and save:
-
-3. Launch the app:
+Run `tree_CNN.ipynb` to train the image classifier and save:
+Launch the app:
 
 streamlit run streamlit_integrated.py
 
