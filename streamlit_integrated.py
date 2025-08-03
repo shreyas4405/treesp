@@ -13,20 +13,17 @@ import os
 
 @st.cache_data
 def load_data():
-    # Corrected file path
-    return pd.read_pickle('Tree_Species_Dataset/tree_data.pkl')
+    return pd.read_pickle('tree_data.pkl')
 
 @st.cache_resource
 def load_nn_models():
-    # Corrected file paths
-    scaler = joblib.load('Tree_Species_Dataset/scaler.joblib')
-    nn_model = joblib.load('Tree_Species_Dataset/nn_model.joblib')
+    scaler = joblib.load('scaler.joblib')
+    nn_model = joblib.load('nn_model.joblib')
     return scaler, nn_model
 
 @st.cache_resource
 def load_cnn_model():
-    # Corrected file path
-    return load_model("Tree_Species_Dataset/basic_cnn_tree_species.h5")
+    return load_model("basic_cnn_tree_species.h5")
 
 # ========== Utility Functions ==========
 
@@ -43,9 +40,9 @@ def get_common_locations_for_species(df, tree_name, top_n=10):
     if species_df.empty:
         return pd.DataFrame(columns=['city', 'state', 'count'])
     location_counts = species_df.groupby(['city', 'state']) \
-                                 .size().reset_index(name='count') \
-                                 .sort_values(by='count', ascending=False) \
-                                 .head(top_n)
+                                .size().reset_index(name='count') \
+                                .sort_values(by='count', ascending=False) \
+                                .head(top_n)
     return location_counts
 
 # ========== Main App ==========
